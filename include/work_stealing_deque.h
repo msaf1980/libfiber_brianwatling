@@ -52,11 +52,11 @@ typedef struct wsd_circular_array
 typedef struct wsd_work_stealing_deque
 {
     volatile int64_t top;
-    char _cache_padding1[CACHE_SIZE - sizeof(int64_t)];
+    char _cache_padding1[CACHE_LINE_SIZE - sizeof(int64_t)];
     volatile int64_t bottom;
-    char _cache_padding2[CACHE_SIZE - sizeof(int64_t)];
+    char _cache_padding2[CACHE_LINE_SIZE - sizeof(int64_t)];
     wsd_circular_array_t* volatile underlying_array;
-    char _cache_padding3[CACHE_SIZE - sizeof(wsd_circular_array_t*)];
+    char _cache_padding3[CACHE_LINE_SIZE - sizeof(wsd_circular_array_t*)];
 } wsd_work_stealing_deque_t;
 
 #ifdef __cplusplus

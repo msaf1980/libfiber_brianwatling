@@ -48,7 +48,7 @@ typedef struct thread_data
     long long empty_count;
     long long attempt_count;
     volatile intptr_t dummy;
-} __attribute__((__aligned__(CACHE_SIZE))) thread_data_t;
+} __attribute__((__aligned__(CACHE_LINE_SIZE))) thread_data_t;
 
 fifo_steal_buffer_t** fifo = NULL;
 thread_data_t* data = NULL;

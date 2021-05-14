@@ -17,13 +17,7 @@
 #ifndef _FIBER_MACHINE_SPECIFIC_H_
 #define _FIBER_MACHINE_SPECIFIC_H_
 
-#ifndef CACHE_SIZE
-#if defined(ARCH_x86) || defined(ARCH_x86_64)
-    #define CACHE_SIZE (64)
-#else
-    #error please define a CACHE_SIZE
-#endif
-#endif
+#include "arch.h"
 
 #include <stdint.h>
 
